@@ -7,12 +7,12 @@ app=Flask(__name__)
 def calcular():
     return render_template("calcular.html")
 
-@app.route("/resultado")
+@app.route("/resultado", methods=["POST"])
 def resultado():
     n1=request.form.get("txtNum1")
     n2=request.form.get("txtNum2")
-    res=int(n1)+int(n2)
-    return render_template("resultado.html",res,n1,n2)
+    res=int(n1)*int(n2)
+    return render_template("resultado.html",res=res,n1=n1,n2=n2)
 
 
 
